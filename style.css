@@ -93,7 +93,9 @@ body {
 				inset: 5px;
 			}
 		}
-		
+		&.blank {
+			height: 100%;
+		}
 		&:where(:nth-child(7n - 1), :nth-child(7n)) {
 			background-color: #f4f4f6;
 			color: #a09fa4;
