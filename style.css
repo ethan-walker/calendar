@@ -106,10 +106,21 @@ body {
 .event {
 	background-color: dodgerblue;
 	height: 1em;
+	position: relative;
 
 	&.start {
 		margin-left: 10px;
 		border-radius: 5px 0 0 5px;
+
+		&::before {
+			position: absolute;
+			content: attr(data-label);
+			left: 5px;
+			color: white;
+			height: 100%;
+			display: flex;
+			align-items: center;
+		}
 	}
 	&.end {
 		margin-right: 10px;

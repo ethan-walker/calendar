@@ -21,6 +21,12 @@ fetch("./data.json")
 
 const mod = (n, m) => (n % m + m) % m;
 
+const isSameDay = (d1, d2) => {
+	return d1.getFullYear() === d2.getFullYear() &&
+		d1.getMonth() === d2.getMonth() &&
+		d1.getDate() === d2.getDate();
+}
+
 function createCalendar(data) {
 	// SETUP MONTHS
 	let startMonth = new Date(data.setup.startMonth)
@@ -80,10 +86,10 @@ function createEvents(data) {
 	let startMonthNum = startMonth.getMonth();
 	
 	for (var event of data.events) {
-		let start = new Date(event.start);
-		let end = new Date(event.end);
+		var start = new Date(event.start);
+		var end = new Date(event.end);
 
-		var loop = start;
+		var loop = new Date(start);
 		while (loop <= end) {
 			var current_month = loop.getMonth() - startMonthNum + 1;
 			var current_day = loop.getDate();
@@ -91,14 +97,15 @@ function createEvents(data) {
 			var parent = document.querySelector(`.month:nth-of-type(${current_month}) > div:nth-child(${current_day} of :not(.blank))`)
 			let elem = document.createElement("div");
 			elem.classList.add("event");
+			
 			for (var elem_class of event.class) {
 				elem.classList.add(elem_class)
 			}
-			
-			if (loop === start) {
+			if (isSameDay(loop, start)) {
 				elem.classList.add("start");
+				elem.dataset.label = event.label
 			}
-			else if (loop === end) {
+			else if (isSameDay(loop, end)) {
 				elem.classList.add("end");
 			}
 			
