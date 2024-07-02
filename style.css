@@ -13,6 +13,8 @@ body {
 	--color-purple: #7b61ff;
 	--color-teal: #00b5ce;
 	--color-pink: #ee46d3;
+
+	--event-height: clamp(0px, 1em, 1.5vw);
 }
 *, *::before, *::after {
 	margin: 0;
@@ -40,6 +42,7 @@ body {
 	position: relative;
 	
 	counter-reset: day;
+	font-size: clamp(0px, 1em, 3vw);
 
 	&::before {
 		position: absolute;
@@ -59,8 +62,8 @@ body {
 
 		padding-top: 2em;
 		display:grid;
-		grid-template-rows: repeat(auto-fill, 1em);
-		gap: .5em;
+		grid-template-rows: repeat(6, 1fr);
+		gap: 5%;
 
 		position: relative;
 
@@ -107,7 +110,6 @@ body {
 
 .event {
 	background-color: dodgerblue;
-	height: 1em;
 	position: relative;
 
 	&.start {
