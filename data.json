@@ -33,24 +33,52 @@
 			"start": "2024-08-20",
 			"end": "2024-08-24",
 			"label": "hb4"
+		},
+		{
+			"class": ["person--3"],
+			"start": "2024-07-08",
+			"end": "2024-07-14",
+			"label": "ot1"
+		},
+		{
+			"class": ["person--3"],
+			"start": "2024-07-19",
+			"end": "2024-08-03",
+			"label": "ot3"
+		},
+		{
+			"class": ["person--3"],
+			"start": "2024-08-22",
+			"end": "2024-08-28",
+			"label": "ot3"
+		},
+		{
+			"class": ["person--4"],
+			"start": "2024-07-06",
+			"end": "2024-07-28",
+			"label": "ew1"
 		}
 	],
-	"classes": {
-		"person--1": {
+	"classes": [
+		{
+			"name": "person--1",
 			"color": "red",
 			"row": 1
 		},
-		"person--2": {
+		{
+			"name": "person--2",
 			"color": "blue",
 			"row": 2
 		},
-		"person--3": {
-			"color": "yellow",
+		{
+			"name": "person--3",
+			"color": "green",
 			"row": 3
 		},
-		"person--4": {
-			"color": "green",
+		{
+			"name": "person--4",
+			"color": "yellow",
 			"row": 4
 		}
-	}
+	]
 }

@@ -4,6 +4,15 @@ body {
 }
 :root {
 	--border-gap: .1em;
+	
+	--color-blue: #18a0fb;
+	--color-green: #1bc47d;
+	--color-yellow: #f2bd00;
+	--color-orange: #f97f0f;
+	--color-red: #f24822;
+	--color-purple: #7b61ff;
+	--color-teal: #00b5ce;
+	--color-pink: #ee46d3;
 }
 *, *::before, *::after {
 	margin: 0;
@@ -94,15 +103,15 @@ body {
 	}
 }
 
-.person {
+.event {
 	background-color: dodgerblue;
 	height: 1em;
 
-	:empty + div > & {
+	&.start {
 		margin-left: 10px;
 		border-radius: 5px 0 0 5px;
 	}
-	div:has(+ :empty) > & {
+	&.end {
 		margin-right: 10px;
 		border-radius: 0 5px 5px 0;
 	}
