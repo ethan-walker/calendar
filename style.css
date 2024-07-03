@@ -94,7 +94,17 @@ body {
 			&::before {
 				content: counter(day);
 				position: absolute;
-				inset: 5px;
+				top: 5px;
+				left: 5px;
+				height: 1.4em;
+				aspect-ratio: 1;
+				display: grid;
+				place-content: center;
+			}
+			&.today::before {
+				color: white;
+				background-color: var(--color-blue);
+				border-radius: 50%;
 			}
 		}
 		&.blank {
@@ -110,7 +120,6 @@ body {
 }
 
 .event {
-	background-color: dodgerblue;
 	position: relative;
 
 	&.start {
@@ -125,6 +134,7 @@ body {
 			height: 100%;
 			display: flex;
 			align-items: center;
+			font-size: calc((((100vw / 7) - 2.5rem) / 5) - 10px);
 		} */
 	}
 	:not(:nth-child(7n)) > &::after {

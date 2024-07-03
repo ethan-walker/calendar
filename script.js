@@ -17,7 +17,10 @@ months = [
 
 fetch("./data.json")
 	.then(response => response.json())
-	.then(json => createCalendar(json))
+	.then(json => {
+		createCalendar(json);
+		highlightToday(json);
+	})
 
 const mod = (n, m) => (n % m + m) % m;
 
@@ -123,5 +126,23 @@ function createEvents(data) {
 		console.log(item)
 		var rule = "." + item.name + " {" + "background-color:" + "var(--color-" + item.color + "); grid-row:" + item.row + ";}\n"
 		styleSheet.insertRule(rule, 0);
+	}
+}
+
+function highlightToday(data) {
+	try {
+		let startMonth = new Date(data.setup.startMonth);
+		let startMonthNum = startMonth.getMonth();
+
+		const today = new Date()
+		var current_month = today.getMonth() - startMonthNum + 1;
+		var current_day = today.getDate();
+
+		var parent = document.querySelector(`.month:nth-of-type(${current_month}) > div:nth-child(${current_day} of :not(.blank))`)
+		parent.classList.add("today");
+	}
+	catch(error) {
+		// the date isn't in the calendar 😢
+		// who knows why
 	}
 }
